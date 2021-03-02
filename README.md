@@ -45,3 +45,4 @@ Throughout the course of my time working on this project, my algorithm changed m
 ## Instructions for running the program
 1.	To run the program, call function hw3(fileName) where “hw3” is the name of the function, and “fileName” is the name of the file in string form.
 2.	Example: hw3(“testLargeA.txt”)
+3.	Sample files can be found under the "test_files" folder.
