@@ -4,13 +4,10 @@ import time
 class location:
     def __init__(self, row, col, data):
         self.children = {}
-        #self.parent = None
         self.row = row
         self.col = col
         self.data = data
         self.active = True
-        #self.active2 = True
-        #self.layer = 0
 #-------------------------------------------------#
         
         
@@ -50,39 +47,20 @@ def hw3(fileName):
     for row in matrix:
         for a in row:
             a.active = False
-            #print(a.layer)
             neighbors = []
-            #print("[{},{},{}]".format(a.row, a.col, a.data))
-            #Check to see if you can safely move right
             if ( (((a.col+a.data) >= 0) and ((a.col+a.data) < n)) and (matrix[a.row][a.col+a.data].active == True) and (matrix[a.row][a.col+a.data].data != 0) ):
-                #k = matrix[a.row][a.col+a.data]
-                #k.parent = a
-                #k.layer = k.parent.layer + 1
-                
                 neighbors.append(matrix[a.row][a.col+a.data])
         
             #Check to see if you can safely move left
             if ( (((a.col-a.data) >= 0) and ((a.col-a.data) < n)) and (matrix[a.row][a.col-a.data].active == True) and (matrix[a.row][a.col-a.data].data != 0) ):
-                #k = matrix[a.row][a.col-a.data]
-                #k.parent = a
-                #k.layer = k.parent.layer + 1
-                
                 neighbors.append(matrix[a.row][a.col-a.data])
 
             #Check to see if you can safely move down
             if ( (((a.row+a.data) >= 0) and ((a.row+a.data) < n)) and (matrix[a.row+a.data][a.col].active == True) and (matrix[a.row+a.data][a.col].data != 0) ):
-                #k = matrix[a.row+a.data][a.col]
-                #k.parent = a
-                #k.layer = k.parent.layer + 1
-                
                 neighbors.append(matrix[a.row+a.data][a.col])
 
             #Check to see if you can safely move up
             if ( (((a.row-a.data) >= 0) and ((a.row-a.data) < n)) and (matrix[a.row-a.data][a.col].active == True) and (matrix[a.row-a.data][a.col].data != 0) ):
-                #k = matrix[a.row-a.data][a.col]
-                #k.parent = a
-                #k.layer = k.parent.layer + 1
-                
                 neighbors.append(matrix[a.row-a.data][a.col])
 
             for i in range(0, len(neighbors)):
